@@ -11,55 +11,62 @@ excerpt: >-
 
 ## 1. Validator Overall Architecture
 
-```mermaid
-flowchart TD
-    V["Validator"]
-
-    V --> TPU["TPU · produce blocks"]
-    V --> TVU["TVU · validate blocks"]
-    V --> B["Bank · slot state and orchestration"]
-    V --> C["Consensus and forks"]
-
-    TPU --> BS["Banking Stage"]
-    BS -->|"schedules transactions and calls"| B
-
-    TVU --> RS["Replay Stage"]
-    RS -->|"replays transactions through"| B
-
-    C --> BF["Bank Forks · fork choice · voting · root"]
-    BF -->|"selects and roots"| B
-
-    B -->|"owns account-state interface"| A["Accounts subsystem"]
-    A --> ADB["Accounts DB"]
-    ADB --> AI["Accounts Index"]
-    ADB --> AC["Accounts Cache"]
-    ADB --> AV["AppendVec storage"]
-
-    B -->|"creates, configures, and calls"| SVM["SVM · TransactionBatchProcessor"]
-    SVM -->|"loads accounts through callback"| A
-    SVM --> AL["Account loading and transaction checks"]
-    SVM --> TC["Transaction Context"]
-    SVM --> PR["Program Runtime"]
-    SVM --> PV["Post-execution validation"]
-
-    PR --> IC["Invoke Context · CPI · syscalls · compute meter"]
-    PR --> BP["Builtin programs · native Rust"]
-    PR --> VM["SBF VM"]
-
-    VM --> BC["Verified SBF bytecode"]
-    VM --> MEM["Registers · stack · heap · input memory"]
-    VM --> EXEC["Interpreter or JIT"]
-    VM --> OP["On-chain program"]
-
-    OP --> NP["Direct Solana SDK SBF program"]
-    OP --> AP["Anchor-generated program"]
-    AP --> DISP["Dispatcher and deserialization"]
-    AP --> CONS["Accounts constraints"]
-    AP --> LOGIC["Business logic"]
-
-    SVM -->|"returns execution result"| B
-    B --> CR["Commit or rollback"]
-    CR -->|"persists accepted changes"| A
+```text
+Validator
+├── Transaction Pipelines
+│   ├── TPU
+│   │   └── Banking Stage
+│   │       └── 调用 Bank 生产区块
+│   │
+│   └── TVU
+│       └── Replay Stage
+│           └── 调用 Bank 重放区块
+│
+├── Bank
+│   ├── Slot / Epoch / FeatureSet
+│   ├── Fee / Blockhash / Nonce
+│   │
+│   ├── Accounts
+│   │   └── Accounts DB
+│   │       ├── Accounts Index
+│   │       ├── Accounts Cache
+│   │       └── AppendVec
+│   │
+│   ├── 创建并调用 SVM
+│   │   └── TransactionBatchProcessor
+│   │       ├── Account Loader
+│   │       │   └── 通过 Callback 向 Bank/Accounts 加载账户
+│   │       │
+│   │       ├── Transaction Processor
+│   │       │   ├── 创建 Transaction Context
+│   │       │   ├── 执行交易
+│   │       │   └── 执行后验证
+│   │       │
+│   │       └── 调用 Program Runtime
+│   │           ├── Invoke Context
+│   │           ├── CPI / Syscalls
+│   │           │
+│   │           └── 执行程序
+│   │               ├── Builtin Program
+│   │               │   └── 原生 Rust 函数
+│   │               │
+│   │               └── SBF VM
+│   │                   └── 执行链上 SBF 程序
+│   │                       ├── 原生 Solana 程序
+│   │                       └── Anchor 生成的程序
+│   │                           ├── Dispatcher
+│   │                           ├── Accounts 校验
+│   │                           └── 业务逻辑
+│   │
+│   └── 消费 SVM 结果
+│       ├── Commit
+│       └── Rollback
+│
+└── Consensus
+    ├── Bank Forks
+    ├── Fork Choice
+    ├── Voting
+    └── Root
 ```
 
 The key relationship is:
