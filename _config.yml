@@ -5,8 +5,7 @@ title:                   "ChrisRanAn — Notes"
 subtitle:                "Personal blogs & study notes"
 name:                    "ChrisRanAn"
 description:             >-
-  Personal blog and study notes covering Solana runtime internals, smart-contract
-  security, and other systems-oriented deep dives.
+  Personal blog and study notes.
 url:                     "https://chrisranan1.github.io"
 baseurl:                 "/blog"
 repository:              "ChrisRanAn1/blog"
@@ -28,8 +27,8 @@ search_full_content:     true
 author:
   name:                  "ChrisRanAn"
   avatar:                "https://github.com/ChrisRanAn1.png"
-  bio:                   "Studying Solana runtime, SVM, SBF VM, and smart-contract security."
-  location:              "China"
+  bio:                   "security is from the depth of understanding"
+  location:              "New York"
   links:
     - label:             "GitHub"
       icon:              "fab fa-fw fa-github"
