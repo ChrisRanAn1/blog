@@ -1,6 +1,6 @@
 ---
 title: "Solana Validator Runtime Hierarchy and Audit Path"
-date: 2026-08-24 12:00:00 +0800
+date: 2026-08-24 00:00:00 +0800
 categories: [solana, notes]
 tags: [solana, audit, security, svm]
 excerpt: >-
