@@ -1,4 +1,12 @@
-# Solana Runtime → SVM → SBF VM: Learning Notes
+---
+title: "Solana Runtime → SVM → SBF VM: Learning Notes"
+date: 2026-08-23
+categories: [solana, notes]
+tags: [runtime, svm, sbf-vm, ebpf, jit]
+excerpt: >-
+  A layer-by-layer mental model of the Solana Runtime, SVM, Program Runtime, and
+  SBF VM — how a transaction actually reaches on-chain bytecode execution.
+---
 
 ## 1. How I Gradually Dived In
 
@@ -252,4 +260,3 @@ Transaction scheduler selects executable transactions
 ```
 
 The next useful source-reading step is to start at `EbpfVm::execute_program`, then follow the interpreter and JIT paths for one simple instruction such as `ADD64_REG`.
-
