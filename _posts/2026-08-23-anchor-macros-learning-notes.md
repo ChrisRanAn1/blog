@@ -346,13 +346,3 @@ Solana entrypoint
 → Optional IDL support
 ```
 
-The best way to continue studying Anchor macros is to choose one small program, run `cargo expand`, and trace one instruction through:
-
-```text
-entry
-→ dispatch
-→ generated instruction handler
-→ try_accounts
-→ user function
-→ account exit/writeback
-```
