@@ -259,4 +259,4 @@ Transaction scheduler selects executable transactions
 → Accounts DB stores the result
 ```
 
-The next useful source-reading step is to start at `EbpfVm::execute_program`, then follow the interpreter and JIT paths for one simple instruction such as `ADD64_REG`.
+
