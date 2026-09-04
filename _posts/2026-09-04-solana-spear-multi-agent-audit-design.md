@@ -9,11 +9,7 @@ excerpt: >-
   semantic dedup plus vote aggregation to keep false positives low.
 ---
 
-`solana-spear` is a multi-agent Solana audit workflow. The idea in one line:
-
-> Have multiple agents with orthogonal viewpoints look for bugs independently. A finding that is hit by N agents AND survives the judge earns high confidence.
-
-To let "N agents hit the same bug" turn into a real signal, dedup is the most critical stage in the whole pipeline.
+`solana-spear` is a multi-agent Solana audit workflow.
 
 ---
 
