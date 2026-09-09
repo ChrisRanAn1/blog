@@ -1,8 +1,6 @@
 ---
 title: "Solidity FullInliner Argument Evaluation Order Bug Postmortem"
 date: 2026-09-04 18:00:00 +0800
-categories: [ethereum, notes]
-tags: [solidity, yul, compiler, optimizer, miscompilation, security]
 excerpt: >-
   A postmortem of the Solidity FullInliner bug (0.6.7 – 0.8.20) that could
   silently flip Yul's right-to-left argument evaluation into left-to-right

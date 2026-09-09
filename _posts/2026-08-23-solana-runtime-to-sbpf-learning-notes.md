@@ -1,8 +1,6 @@
 ---
 title: "Solana Runtime → SVM → SBF VM: Learning Notes"
 date: 2026-08-23
-categories: [solana, notes]
-tags: [runtime, svm, sbf-vm, ebpf, jit]
 excerpt: >-
   A layer-by-layer mental model of the Solana Runtime, SVM, Program Runtime, and
   SBF VM — how a transaction actually reaches on-chain bytecode execution.

@@ -1,8 +1,6 @@
 ---
 title: "Understanding Anchor Macros"
 date: 2026-08-23 09:00:00 +0800
-categories: [solana, notes]
-tags: [anchor, macros, proc-macro, rust, idl]
 excerpt: >-
   How Anchor's proc macros turn a concise program module into the full
   Solana boilerplate — `#[program]`, `#[derive(Accounts)]`, `#[account]`,

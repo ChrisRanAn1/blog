@@ -1,8 +1,6 @@
 ---
 title: "Many-Time Pad Attack: Breaking Reused OTP Keys"
 date: 2026-09-08 10:00:00 +0800
-categories: [crypto, notes]
-tags: [cryptography, otp, xor, ctf, writeup]
 excerpt: >-
   A CTF writeup on the classic many-time pad attack — recovering plaintext
   from 11 ciphertexts that share a single stream-cipher key, using the

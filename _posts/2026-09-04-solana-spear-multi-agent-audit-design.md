@@ -1,8 +1,6 @@
 ---
 title: "AI agent focus on solana audit"
 date: 2026-09-04 20:00:00 +0800
-categories: [security, notes]
-tags: [solana, audit, llm, multi-agent, false-positive, deduplication, poc]
 excerpt: >-
   A multi-agent Solana audit workflow that runs eight orthogonal agents in
   parallel, gates each finding through a per-agent judge, then uses LLM-based

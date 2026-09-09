@@ -1,8 +1,6 @@
 ---
 title: "My SR Journey"
 date: 2026-09-03 10:00:00 +0800
-categories: [security, notes]
-tags: [security-research, solana, audit, learning, journey]
 excerpt: >-
   A personal retrospective on starting security research from May 2026 —
   learning Rust and Solana, building an audit agent, playing the Solana

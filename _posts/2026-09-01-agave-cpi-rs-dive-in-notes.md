@@ -1,8 +1,6 @@
 ---
 title: "Agave `cpi.rs` Source Code Study Notes"
 date: 2026-09-01 10:00:00 +0800
-categories: [solana, notes]
-tags: [solana, agave, cpi, runtime, sbf, memory-mapping, account-info, pda]
 excerpt: >-
   A walkthrough of Agave's `cpi.rs` — how CPI arguments are translated
   between SBF VM memory and the Runtime, how PDA signers are derived,
