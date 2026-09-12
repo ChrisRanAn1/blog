@@ -9,6 +9,8 @@ excerpt: >-
 
 ## Overview
 
+This is an interview question I encountered. I didn't have a technical background at that time and I can't even say a word about this question, the code was completely alien.
+
 This bug was a miscompilation issue in Solidity's Yul optimizer.
 
 Yul defines function argument evaluation order as **right-to-left**, but older versions of `FullInliner` could, under specific conditions, transform argument binding into **left-to-right** order.
