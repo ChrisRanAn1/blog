@@ -1,10 +1,8 @@
 ---
-title: "x402 Solana Audit Arena: Finding a Critical in an Agentic Payment Protocol"
+title: "x402 Solana Audit Arena
 date: 2026-09-20 10:00:00 +0800
 excerpt: >-
-  Notes from my first Solana Audit Arena — a walkthrough of the threat model
-  I built for the x402 agentic payment protocol and how it led me to a
-  critical signature-verification bug and a missing-deadline issue.
+ 
 ---
 
 Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid Critical and Medium, however I didn’t score since somebody submitted it 2 hours after the mission launch and I was late, all marked as dup. This note is just for record and showing my thinking process of finding the bug.
