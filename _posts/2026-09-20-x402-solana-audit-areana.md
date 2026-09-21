@@ -70,7 +70,7 @@ require!(
 
 In this case, as long as the buyer signed any 32bytes signature, an attacker could use the signature to drain the buyer’s vault.
 
-
+submission: https://github.com/Frankcastleauditor/Solana-Audit-Arena/issues/246
 
 ---
 
