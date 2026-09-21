@@ -5,6 +5,7 @@ date: 2026-09-20 10:00:00 +0800
 
 Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid Critical and Medium, however I didn’t score since somebody submitted it 2 hours after the mission launch and I was late, all marked as dup. This note is just for record and showing my thinking process of finding the bug.
 
+
 ---
 
 I didn't start with reading the code, but trying to know what the program is doing. Once I read an accretion’s blog about how they audit MetaDao. They spend a long time analyzing if the market is really fair, could a random user gain something that the program did not intend them to gain. This reminds me that I should have something like a threaten model before diving into the code, to have a concept of what is the most vulnerable part of a system. When it comes to the x402 meridian, I was thinking about whether the seller on solana could fake the signature of the buyer and steal the money, or the buyer may fake the payment. Could the facilitator act maliciously and steal money, or attack the system. Are there any problems with the nonce?Are there any problems with the account life cycle or validation? The core part is the signature, it has to sign the right content.
@@ -68,6 +69,8 @@ require!(
 ```
 
 In this case, as long as the buyer signed any 32bytes signature, an attacker could use the signature to drain the buyer’s vault.
+
+original submission: https://github.com/Frankcastleauditor/Solana-Audit-Arena/issues/246
 
 ---
 
