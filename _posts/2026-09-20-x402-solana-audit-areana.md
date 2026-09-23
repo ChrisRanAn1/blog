@@ -3,7 +3,7 @@ title: "x402 Solana audit areana"
 date: 2026-09-20 10:00:00 +0800
 ---
 
-Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid dup Critical and Medium. This note is just for record and showing my thinking process of finding the bug.
+Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid dup Critical and Medium. This is the write up
 
 
 ---
