@@ -384,7 +384,7 @@ execute_program(interpreted: bool)
     │
     ├── true  → Interpreter::step() loop
     │             Interpreter = the semantic baseline/spec, pure Rust logic,
-    │             safety is guaranteed naturally by the type system
+    │             Rust helps prevent memory-safety errors
     │
     └── false → runs the machine code produced by JIT compile()
                   
