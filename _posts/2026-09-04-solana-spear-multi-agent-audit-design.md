@@ -67,7 +67,7 @@ Token budget is a hard constraint: warn at 180k, hard cap at 220k. Anything over
 
 ---
 
-## 2. Fan-out: Eight Orthogonal Agents
+## 2. Fan-out: eight specialist agents with overlapping coverage
 
 `config.py` defines eight agents, each backed by a long checklist under `prompts/`:
 
