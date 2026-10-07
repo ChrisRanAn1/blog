@@ -15,7 +15,14 @@ This bug was a miscompilation issue in Solidity's Yul optimizer.
 
 Yul defines function argument evaluation order as **right-to-left**, but older versions of `FullInliner` could, under specific conditions, transform argument binding into **left-to-right** order.
 
-If the arguments had no side effects, this usually did not change the result.
+If the arguments had no side effects, this usually did not change the result, like there is a check in the specific commit:
+  
+  //No inlining of calls where argument expressions may have side-effects.
+	// To avoid running into this, make sure that ExpressionSplitter runs before FullInliner.
+	for (auto const& argument: _funCall.arguments)
+		if (!std::holds_alternative<Literal>(argument) && !std::holds_alternative<Identifier>(argument))
+			return false;
+
 
 If the arguments contained operations such as:
 
