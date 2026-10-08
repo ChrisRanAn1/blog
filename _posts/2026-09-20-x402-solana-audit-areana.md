@@ -3,7 +3,7 @@ title: "x402 Solana audit areana"
 date: 2026-09-20 10:00:00 +0800
 ---
 
-Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid dup Critical and Medium. This is the write up
+Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid dup Critical and Medium. I use both ai agent and manual in the contest, this write up is focus on the manual solving process.
 
 
 ---
@@ -34,9 +34,9 @@ Then I started to read the code, this is a very short program but I spent a whil
 
 ---
 
-After I checked these I found 3 very suspicious places. The first is to use the token 2022 extension but never had a relevant check. If the buyer use a PermanentDelegate they can get the money back after the deal. I was confused about if this could be a finding， the program is only about the payment, it is the seller’s responsibility to verify the mint. In the end I saw the judge marked every finding relevant to the token 2022-extension as invalid. I also submit the finding in the end but invalid, I think this should be a info.
+After I checked these I found 3 very suspicious places. The first is to use the token 2022 extension but never had a relevant check. If the buyer use a PermanentDelegate they can get the money back after the deal. In the end I saw the judge marked every finding relevant to the token 2022-extension as invalid, the program is only about the payment, it is the seller’s responsibility to verify the mint.. 
 
-Then I also found 2 other problems including the critical. When I was trying to find the verification of the actual content in the signature, I only find the length check:
+Then I also found 2 other problems. When I was trying to find the verification of the content in the signature, I only find the length check:
 
 ```rust
 require!(
