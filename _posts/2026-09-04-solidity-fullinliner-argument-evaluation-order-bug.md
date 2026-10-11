@@ -1,5 +1,5 @@
 ---
-title: "Solidity FullInliner Argument Evaluation Order Bug Postmortem"
+title: "solidity-fullinliner-argument-evaluation-order"
 date: 2026-09-04 18:00:00 +0800
 excerpt: >-
   A postmortem of the Solidity FullInliner bug (0.6.7 – 0.8.20) that could
