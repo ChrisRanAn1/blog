@@ -3,12 +3,11 @@ title: "x402 Solana audit areana"
 date: 2026-09-20 10:00:00 +0800
 ---
 
-Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. I found a valid dup Critical and Medium. I use both ai agent and manual in the contest, this write up is focus on the manual solving process.
-
+Last month I participated in the Slana audit arena, a real audit like CTF, for the first time. The first week of season 2 is a x402 agentic payment protocol, allowing an agent with an EVM wallet to pay sellers on solana. 
 
 ---
 
-I didn't start with reading the code, but trying to know what the program is doing. Once I read an accretion’s blog about how they audit MetaDao. They spend a long time analyzing if the market is really fair, could a random user gain something that the program did not intend them to gain. This reminds me that I should have something like a threaten model before diving into the code for each kinds of protocol, to have a concept of what is the most vulnerable part of a system. When it comes to the x402 meridian, I was thinking about whether the faciliator on solana could fake the signature of the buyer and steal the money, or the buyer may fake the payment. Could the facilitator act maliciously or attack the system. Are there any problems with the nonce?Are there any problems with the account life cycle or validation? The core part is the signature, it has to sign the right content.
+I first thinking about whether the faciliator on solana could fake the signature of the buyer and steal the money, or the buyer may fake the payment. Could the facilitator act maliciously or attack the system. Are there any problems with the nonce?Are there any problems with the account life cycle or validation? The core part is the signature, it has to sign the right content.
 
 Then I started to read the code, this is a very short program but I spent a while reading and understanding it because I didn’t have a concept of this kind of program. After I understood the program, I came with a more specific threat model.
 
@@ -34,9 +33,7 @@ Then I started to read the code, this is a very short program but I spent a whil
 
 ---
 
-After I checked these I found 3 very suspicious places. The first is to use the token 2022 extension but never had a relevant check. If the buyer use a PermanentDelegate they can get the money back after the deal. In the end I saw the judge marked every finding relevant to the token 2022-extension as invalid, the program is only about the payment, it is the seller’s responsibility to verify the mint.. 
-
-Then I also found 2 other problems. When I was trying to find the verification of the content in the signature, I only find the length check:
+When I was trying to find the verification of the content in the signature, I only find the length check:
 
 ```rust
 require!(
@@ -45,7 +42,7 @@ require!(
     );
 ```
 
-This definitely have some problem, the datahash bind the spender and the permit
+the datahash bind the spender and the permit
 
 ```rust
  pub fn permit_transfer_from(
@@ -86,7 +83,7 @@ pub struct PermitTransferFromArgs {
 }
 ```
 
-Which means this is useless, even if it’s passed, the permit is still valid.
+even if it’s passed, the permit is still valid.
 
 ---
 
