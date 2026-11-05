@@ -2,12 +2,10 @@
 title: "My SR Journey"
 date: 2026-09-03 10:00:00 +0800
 excerpt: >-
-  A personal retrospective on starting security research from May 2026 —
-  learning Rust and Solana, building an audit agent, playing the Solana
-  Audit Arena, and searching for a real audit methodology.
+  
 ---
 
-I started on May 15th 2026. I decided to start with rust and Solana because it's my favorite blockchain. It is very interesting to see the industry in a totally different perspective and dive deeper.
+I started with rust and Solana because it's my favorite blockchain. 
 
 I spent my entire first month on rust, starting with The Rust Book, because I don't have too much coding experience on other programming languages, I didn't feel the pain of learning rust at the start. I also practice coding with the Rare code.
 
@@ -17,4 +15,4 @@ Then I spent a week building a Solana audit agent with python, 8 agents each in 
 
 I also decided to dive deeper into the SVM. Reading some important components of program runtime and sbf-vm, and figure out what actually happened behind the smart contract layer. The compiler's behavior is also important. I also read research blogs from Ottersec and Accretion.
 
-Based on my understanding, the methodology of learning a new blockchain is to start with the programming language syntax like solidity, then learn the smart contract and stack, like anchor, foundry. Then look into some common vulnerabilities and read real protocol code. Dive into the vm and low level component, understanding everything behind the execution of a smart contract code. After that, do shadow audits and dive into repos. Currently I'm focusing on training understand complex code base without using ai.
+Currently I'm learning RE solana program and building ai tooling, also reading different protocols code and trying to hunt real program.
